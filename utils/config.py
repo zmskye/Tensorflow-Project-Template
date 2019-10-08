@@ -2,6 +2,10 @@ import json
 from bunch import Bunch
 import os
 
+cur_dir = os.path.dirname(__file__)
+
+ADV = {'0': 19636, '10': 27296, '50': 68986, '100': 123279, '500': 566479, '1000': 1125550, '2000': 2245938}
+
 
 def get_config_from_json(json_file):
     """
@@ -21,6 +25,10 @@ def get_config_from_json(json_file):
 
 def process_config(json_file):
     config, _ = get_config_from_json(json_file)
-    config.summary_dir = os.path.join("../experiments", config.exp_name, "summary/")
-    config.checkpoint_dir = os.path.join("../experiments", config.exp_name, "checkpoint/")
+    base_path = os.path.join(cur_dir, '../experiments')
+    config.summary_dir = os.path.join(base_path, config.exp_name, "summary/")
+    config.checkpoint_dir = os.path.join(base_path, config.exp_name, "checkpoint/")
+    config.ckpt_best = os.path.join(base_path, config.exp_name, 'ckpt_best/')
+    config.train_data_len = ADV[str(config.adv)]
+
     return config

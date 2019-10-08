@@ -13,10 +13,11 @@ class BaseTrain:
 
     def train(self):
         for cur_epoch in range(self.model.cur_epoch_tensor.eval(self.sess), self.config.num_epochs + 1, 1):
-            self.train_epoch()
+            self.train_epoch(cur_epoch)
+            # self.eval()
             self.sess.run(self.model.increment_cur_epoch_tensor)
 
-    def train_epoch(self):
+    def train_epoch(self, cur_epoch):
         """
         implement the logic of epoch:
         -loop over the number of iterations in the config and call the train step
@@ -24,10 +25,16 @@ class BaseTrain:
         """
         raise NotImplementedError
 
-    def train_step(self):
+    def train_step(self, step):
         """
         implement the logic of the train step
         - run the tensorflow session
         - return any metrics you need to summarize
         """
+        raise NotImplementedError
+
+    def eval(self):
+        raise NotImplementedError
+
+    def inference(self, score):
         raise NotImplementedError
