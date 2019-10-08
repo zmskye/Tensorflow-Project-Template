@@ -11,6 +11,7 @@ class DataGenerator:
         self.dev_files = None
         self.test_files = None
 
+        self.config.train_len = len(self.train_files)
         self.config.dev_len = len(self.dev_files)
         self.config.test_len = len(self.test_files)
 

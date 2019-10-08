@@ -6,7 +6,7 @@ cur_dir = os.path.dirname(__file__)
 sys.path.append(os.path.join(cur_dir, '../'))
 
 from data_loader.data_generator import DataGenerator
-from models.example_model import ExampleModel
+from models.main_model import ExampleModel
 from trainers.example_trainer import ExampleTrainer
 from utils.config import process_config
 from utils.dirs import create_dirs

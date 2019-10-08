@@ -9,7 +9,7 @@ class ExampleTrainer(BaseTrain):
         super(ExampleTrainer, self).__init__(sess, model, data, config, logger)
 
     def train_epoch(self, cur_epoch):
-        num_iter = int(np.ceil(self.config.train_data_len / self.config.batch_size))
+        num_iter = int(np.ceil(self.config.train_len / self.config.batch_size))
         losses = []
         accs = []
         f1s = []

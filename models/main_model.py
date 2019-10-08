@@ -13,9 +13,9 @@ from models.template_model import TmModel
 from utils.learning_schedules import cosine_decay_with_warmup
 
 
-class ResNetModel(BaseModel):
+class ExampleModel(BaseModel):
     def __init__(self, config):
-        super(ResNetModel, self).__init__(config)
+        super(ExampleModel, self).__init__(config)
         print('init_learning_rate: {}, batch size: {}, ckpt_dir: {}'
               .format(self.config.learning_rate, self.config.batch_size, self.config.exp_name))
 
